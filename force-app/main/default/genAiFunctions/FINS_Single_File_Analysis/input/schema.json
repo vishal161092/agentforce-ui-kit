@@ -1,0 +1,17 @@
+{
+  "required" : [ "Input:File" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "Input:File" : {
+      "title" : "File",
+      "description" : "This is the ID of the ContentDocument record that needs to be analyzed by the LLM",
+      "lightning:type" : "lightning__recordInfoType",
+      "lightning:sObjectInfo" : {
+        "apiName" : "ContentDocument"
+      },
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

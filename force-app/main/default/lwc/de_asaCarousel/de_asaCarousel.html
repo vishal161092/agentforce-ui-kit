@@ -1,0 +1,110 @@
+<template>
+    <template lwc:if={errorMessage}>
+        <div class="error-container">
+            <p class="error-message">{errorMessage}</p>
+        </div>
+    </template>
+    <template lwc:elseif={hasProducts}>
+        <div class="carousel-container" style={cardAccentStyle}>
+            <div
+                class="carousel-card"
+                role="button"
+                tabindex="0"
+                onclick={handleProductSelect}
+                onkeydown={handleProductKeydown}
+            >
+                <template lwc:if={currentProduct.imageUrl}>
+                    <div class="card-hero">
+                        <img
+                            src={currentProduct.imageUrl}
+                            alt={currentProduct.title}
+                            class="card-hero-img"
+                        />
+                        <template lwc:if={currentProduct.badge}>
+                            <span class="card-badge">{currentProduct.badge}</span>
+                        </template>
+                        <span class="card-hero-shine"></span>
+                    </div>
+                </template>
+
+                <div class="card-content">
+                    <h2 class="card-title">{currentProduct.title}</h2>
+
+                    <template lwc:if={currentProduct.tagline}>
+                        <p class="card-tagline">{currentProduct.tagline}</p>
+                    </template>
+
+                    <template lwc:if={currentProduct.description}>
+                        <p class="card-description">{currentProduct.description}</p>
+                    </template>
+
+                    <template lwc:if={currentPerks.length}>
+                        <ul class="card-perks">
+                            <template for:each={currentPerks} for:item="perk">
+                                <li key={perk.key} class="card-perk">
+                                    <svg class="perk-check" viewBox="0 0 16 16" aria-hidden="true">
+                                        <path d="M6.5 11.2 3.3 8l1.1-1.1 2.1 2.1 5-5L12.7 5z" />
+                                    </svg>
+                                    <span>{perk.label}</span>
+                                </li>
+                            </template>
+                        </ul>
+                    </template>
+
+                    <div class="card-cta">Select this card →</div>
+                </div>
+            </div>
+
+            <template lwc:if={showNavigation}>
+                <div class="carousel-controls">
+                    <button
+                        class="nav"
+                        onclick={handlePrevious}
+                        disabled={isFirstCard}
+                        aria-label="Previous"
+                    >
+                        <svg class="arrow-icon" viewBox="0 0 11 18" xmlns="http://www.w3.org/2000/svg">
+                            <polyline points="10.5,0 0,9 10.5,18" />
+                        </svg>
+                    </button>
+
+                    <template for:each={productsWithIndex} for:item="item">
+                        <div class="dotBody" key={item.key}>
+                            <span
+                                class={item.dotClass}
+                                data-index={item.index}
+                                onclick={handleDotClick}
+                            ></span>
+                        </div>
+                    </template>
+
+                    <button
+                        class="nav"
+                        onclick={handleNext}
+                        disabled={isLastCard}
+                        aria-label="Next"
+                    >
+                        <svg class="arrow-icon" viewBox="0 0 11 18" xmlns="http://www.w3.org/2000/svg">
+                            <polyline points="0,0 10.5,9 0,18" />
+                        </svg>
+                    </button>
+                </div>
+            </template>
+        </div>
+
+        <template lwc:if={hasSelection}>
+            <div class="selection-response">
+                <p class="selection-label">You selected:</p>
+                <p class="selection-title">{selectedProduct.title}</p>
+                <template lwc:if={selectedProduct.description}>
+                    <p class="selection-description">{selectedProduct.description}</p>
+                </template>
+            </div>
+        </template>
+    </template>
+    <template lwc:else>
+        <div class="empty-state">
+            <p>No products to display</p>
+        </div>
+    </template>
+</template>

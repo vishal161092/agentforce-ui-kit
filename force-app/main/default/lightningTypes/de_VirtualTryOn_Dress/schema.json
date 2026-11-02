@@ -1,0 +1,5 @@
+{
+  "title" : "DE Virtual Try-On Dress",
+  "description" : "Virtual try-on output using selected dress URL and uploaded person image",
+  "lightning:type" : "@apexClassType/c__de_VirtualTryOnDressInfo"
+}

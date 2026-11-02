@@ -1,0 +1,14 @@
+{
+  "required" : [ "Input:FAQs" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "Input:FAQs" : {
+      "title" : "FAQs",
+      "description" : "Uses the user question to generate answers",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

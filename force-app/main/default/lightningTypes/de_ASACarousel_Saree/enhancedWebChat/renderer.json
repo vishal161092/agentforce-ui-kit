@@ -1,0 +1,9 @@
+{
+  "renderer" : {
+    "componentOverrides" : {
+      "$" : {
+        "definition" : "c/de_ASACarousel_Saree"
+      }
+    }
+  }
+}

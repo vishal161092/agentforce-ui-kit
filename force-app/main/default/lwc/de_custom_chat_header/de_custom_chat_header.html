@@ -1,0 +1,117 @@
+<template>
+    <!-- Header menu (left) -->
+    <section class={menuClass}>
+        <template if:true={showMenuButton}>
+            <!-- Menu button -->
+            <button class="headerButton menuButton" onclick={handleMenuButtonClick} title="Menu">
+                <lightning-icon icon-name="utility:threedots_vertical" variant="inverse" size="x-small"></lightning-icon>
+            </button>
+        </template>
+
+        <!-- Menu options (card style) -->
+        <section class="optionsMenu slds-dropdown slds-dropdown_left slds-nubbin_top-left">
+            <div class="de-opt-list" role="menu">
+                <template for:each={menuOptions} for:item="option">
+                    <button class={option.cardClass}
+                            key={option.optionIdentifier}
+                            data-value={option.optionIdentifier}
+                            onclick={handleMenuOptionClick}
+                            role="menuitem">
+                        <span class={option.iconWrapClass}>
+                            <lightning-icon icon-name={option.iconName} size="x-small"></lightning-icon>
+                        </span>
+                        <span class="de-opt-title">{option.title}</span>
+                    </button>
+                </template>
+            </div>
+        </section>
+    </section>
+
+    <!-- Header title (center) — fixed branded label with brand icon -->
+    <img src={headerIcon} class="de-header-icon" alt="" />
+    <h2>{headerTitle}</h2>
+
+    <!-- Transcript button -->
+    <template if:true={showTranscriptButton}>
+        <button class="headerButton transcriptButton" onclick={handleHeaderTranscript} title="Download transcript">
+            <lightning-icon icon-name="utility:download" variant="inverse" size="x-small"></lightning-icon>
+        </button>
+    </template>
+
+    <!-- Minimize button -->
+    <button class="headerButton minimizeButton" onclick={handleMinimize} title="Minimize">
+        <lightning-icon icon-name="utility:chevrondown" variant="inverse" size="x-small"></lightning-icon>
+    </button>
+
+    <!-- Close button -->
+    <button class="headerButton closeButton" onclick={handleCloseClick} title="Close">
+        <lightning-icon icon-name="utility:close" variant="inverse" size="x-small"></lightning-icon>
+    </button>
+
+    <!-- Close confirmation modal -->
+    <template if:true={showCloseModal}>
+        <div class="de-modal-backdrop">
+            <div class="de-modal" role="dialog" aria-modal="true" aria-label="End chat confirmation">
+                <p class="de-modal-title">Are you sure you want to end this chat?</p>
+                <div class="de-modal-actions">
+                    <button class="de-modal-btn de-btn-secondary" onclick={handleDownloadTranscript}>
+                        Download Transcript
+                    </button>
+                    <button class="de-modal-btn de-btn-secondary" onclick={handleCancelClose}>
+                        No, Keep Chatting
+                    </button>
+                    <button class="de-modal-btn de-btn-danger" onclick={handleConfirmClose}>
+                        Yes, End Chat
+                    </button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Post-chat survey -->
+    <template if:true={showSurvey}>
+        <div class="de-modal-backdrop">
+            <div class="de-modal de-survey" role="dialog" aria-modal="true" aria-label="Post-chat survey">
+                <p class="de-modal-title">Before you go — how did we do?</p>
+
+                <div class="de-survey-q">
+                    <p class="de-survey-label">1. How would you rate your overall experience?</p>
+                    <div class="de-stars">
+                        <template for:each={stars} for:item="star">
+                            <button
+                                key={star.value}
+                                class={star.class}
+                                data-value={star.value}
+                                onclick={handleStarClick}
+                                type="button"
+                                aria-label="Rate">
+                                ★
+                            </button>
+                        </template>
+                    </div>
+                </div>
+
+                <div class="de-survey-q">
+                    <p class="de-survey-label">2. Did we resolve your issue?</p>
+                    <div class="de-thumbs">
+                        <button class={thumbUpClass} data-value="up" onclick={handleThumbClick} type="button" aria-label="Thumbs up">
+                            <lightning-icon icon-name="utility:like" size="x-small"></lightning-icon>
+                        </button>
+                        <button class={thumbDownClass} data-value="down" onclick={handleThumbClick} type="button" aria-label="Thumbs down">
+                            <lightning-icon icon-name="utility:dislike" size="x-small"></lightning-icon>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="de-modal-actions">
+                    <button class="de-modal-btn de-btn-primary" onclick={handleSurveySubmit}>
+                        Submit &amp; End Chat
+                    </button>
+                    <button class="de-modal-btn de-btn-secondary" onclick={handleSurveySkip}>
+                        Skip
+                    </button>
+                </div>
+            </div>
+        </div>
+    </template>
+</template>

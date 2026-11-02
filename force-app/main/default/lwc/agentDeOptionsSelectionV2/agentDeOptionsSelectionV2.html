@@ -1,0 +1,56 @@
+<template>
+    <div class="de-v2-root">
+        <!-- <template lwc:if={questionLabel}>
+            <p class="de-v2-question">{questionLabel}</p>
+        </template> -->
+
+        <template lwc:if={hasOptions}>
+            <!-- Options shown directly (no collapsible menu toggle) -->
+            <div class={listClass}>
+                <template for:each={normalizedOptions} for:item="option">
+                    <div key={option.id} class="de-v2-item">
+                        <template lwc:if={option.isLink}>
+                            <a
+                                class={option.cardClass}
+                                href={option.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <span class="de-v2-left">
+                                    <span class={option.iconWrapClass}>
+                                        <lightning-icon icon-name={option.iconName} size="x-small" class="de-v2-icon-image"></lightning-icon>
+                                    </span>
+                                    <span class="de-v2-copy">
+                                        <span class="de-v2-title">{option.title}</span>
+                                        <template lwc:if={option.subtitle}>
+                                            <span class="de-v2-subtitle">{option.subtitle}</span>
+                                        </template>
+                                    </span>
+                                </span>
+                            </a>
+                        </template>
+                        <template lwc:else>
+                            <button
+                                class={option.cardClass}
+                                data-value={option.value}
+                                onclick={handleOptionClick}
+                            >
+                                <span class="de-v2-left">
+                                    <span class={option.iconWrapClass}>
+                                        <lightning-icon icon-name={option.iconName} size="x-small" class="de-v2-icon-image"></lightning-icon>
+                                    </span>
+                                    <span class="de-v2-copy">
+                                        <span class="de-v2-title">{option.title}</span>
+                                        <template lwc:if={option.subtitle}>
+                                            <span class="de-v2-subtitle">{option.subtitle}</span>
+                                        </template>
+                                    </span>
+                                </span>
+                            </button>
+                        </template>
+                    </div>
+                </template>
+            </div>
+        </template>
+    </div>
+</template>

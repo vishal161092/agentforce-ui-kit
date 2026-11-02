@@ -1,0 +1,5 @@
+{
+  "title" : "Options Selection Response (Tyres)",
+  "description" : "Renders a card-style component that displays selectable options from comma-separated values",
+  "lightning:type" : "@apexClassType/c__de_OptionsSelectionInfoBw"
+}

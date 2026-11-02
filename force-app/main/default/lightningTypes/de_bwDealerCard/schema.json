@@ -1,0 +1,5 @@
+{
+  "title" : "Brightwave Dealer Card",
+  "description" : "Displays a dealer information card with name, address, type, and Google Maps link for Brightwave agents",
+  "lightning:type" : "@apexClassType/c__de_BW_ShowDealerCards$DealerCardResponse"
+}

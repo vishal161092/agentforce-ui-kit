@@ -1,0 +1,5 @@
+{
+  "title" : "DE Service Request Selector",
+  "description" : "Clickable service request type selector for ASA agent",
+  "lightning:type" : "@apexClassType/c__de_ServReqInfo"
+}

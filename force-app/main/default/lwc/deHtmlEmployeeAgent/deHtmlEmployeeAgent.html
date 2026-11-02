@@ -1,0 +1,119 @@
+<template>
+    <div class="de-wrap slds-p-around_small">
+        <section class="de-ai-banner slds-grid slds-grid_vertical-align-center slds-p-around_medium">
+            <div class="de-ai-icon slds-m-right_small" aria-hidden="true">
+                <lightning-icon icon-name="utility:einstein" size="small" alternative-text=""></lightning-icon>
+            </div>
+            <div>
+                <p class="de-ai-title">{aiTitle}</p>
+                <p class="de-ai-body slds-m-top_xx-small">{aiBody}</p>
+            </div>
+        </section>
+
+        <div class="slds-grid slds-wrap slds-gutters_x-small slds-m-top_medium">
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                <article class="de-card de-card--left slds-p-around_medium">
+                    <div class="de-card-header slds-grid slds-grid_align-spread">
+                        <span class="de-product-title">{leftName}</span>
+                        <lightning-icon
+                            class="de-ribbon"
+                            icon-name="utility:bookmark"
+                            size="x-small"
+                            alternative-text=""
+                        ></lightning-icon>
+                    </div>
+                    <p class="de-metric-label slds-m-top_small">Conversion</p>
+                    <p class="de-conversion de-conversion--purple">{leftConversionLabel}</p>
+                    <div class="de-bar de-bar-track">
+                        <div class="de-bar-fill de-bar-fill--purple" style={leftBarStyle}></div>
+                    </div>
+                    <div class="de-cycle slds-m-top_small slds-grid slds-grid_vertical-align-center">
+                        <lightning-icon
+                            icon-name="utility:clock"
+                            size="x-small"
+                            class="de-cycle-icon slds-m-right_xx-small"
+                            alternative-text=""
+                        ></lightning-icon>
+                        <span>
+                            <span class="de-metric-label">Deal Cycle</span>
+                            <strong class="de-cycle-days"> {leftCycleLabel}</strong>
+                        </span>
+                    </div>
+                </article>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                <article class="de-card de-card--right slds-p-around_medium">
+                    <div class="de-card-header slds-grid slds-grid_align-spread">
+                        <span class="de-product-title">{rightName}</span>
+                    </div>
+                    <p class="de-metric-label slds-m-top_small">Conversion</p>
+                    <p class="de-conversion de-conversion--orange">{rightConversionLabel}</p>
+                    <div class="de-bar de-bar-track">
+                        <div class="de-bar-fill de-bar-fill--orange" style={rightBarStyle}></div>
+                    </div>
+                    <div class="de-cycle slds-m-top_small slds-grid slds-grid_vertical-align-center">
+                        <lightning-icon
+                            icon-name="utility:clock"
+                            size="x-small"
+                            class="de-cycle-icon slds-m-right_xx-small"
+                            alternative-text=""
+                        ></lightning-icon>
+                        <span>
+                            <span class="de-metric-label">Deal Cycle</span>
+                            <strong class="de-cycle-days"> {rightCycleLabel}</strong>
+                        </span>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <div class="slds-grid slds-wrap slds-gutters_x-small slds-m-top_small">
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                <article class="de-insight de-insight--green slds-p-around_medium">
+                    <div class="de-insight-icon de-insight-icon--green slds-m-bottom_x-small">
+                        <lightning-icon
+                            icon-name="utility:trending"
+                            size="x-small"
+                            alternative-text=""
+                        ></lightning-icon>
+                    </div>
+                    <p class="de-insight-title de-insight-title--green">{insightLeftTitle}</p>
+                    <p class="de-insight-body slds-m-top_xx-small">{insightLeftBody}</p>
+                </article>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                <article class="de-insight de-insight--blue slds-p-around_medium">
+                    <div class="de-insight-icon de-insight-icon--blue slds-m-bottom_x-small">
+                        <lightning-icon
+                            icon-name="utility:money"
+                            size="x-small"
+                            alternative-text=""
+                        ></lightning-icon>
+                    </div>
+                    <p class="de-insight-title de-insight-title--blue">{insightRightTitle}</p>
+                    <p class="de-insight-body slds-m-top_xx-small">{insightRightBody}</p>
+                </article>
+            </div>
+        </div>
+
+        <section class="de-footer slds-p-around_large slds-m-top_medium">
+            <div class="slds-grid slds-grid_vertical-align-start">
+                <div class="de-footer-icon slds-m-right_small" aria-hidden="true">
+                    <lightning-icon icon-name="utility:success" size="small" alternative-text=""></lightning-icon>
+                </div>
+                <div class="slds-grow">
+                    <p class="de-footer-title">{footerTitle}</p>
+                    <p class="de-footer-body slds-m-top_x-small">{footerBody}</p>
+                    <button
+                        type="button"
+                        class="de-footer-cta slds-m-top_medium"
+                        onclick={handleBeatPlanClick}
+                    >
+                        {footerButtonLabel}
+                        <span class="de-footer-cta-arrow" aria-hidden="true">→</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+</template>

@@ -1,0 +1,5 @@
+{
+  "title" : "Options Selection Response",
+  "description" : "Renders a component that displays selectable options",
+  "lightning:type" : "@apexClassType/c__DeOptionsSelectionInfo"
+}

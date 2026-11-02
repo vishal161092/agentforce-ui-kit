@@ -1,0 +1,44 @@
+<template>
+    <div class="de-da-root">
+        <template lwc:if={hasDealers}>
+            <div class="de-da-heading">{heading}</div>
+            <div class="de-da-list">
+                <template for:each={dealers} for:item="dealer">
+                    <article key={dealer.id} class="de-da-card">
+                        <div class="de-da-card-header">
+                            <span class="de-da-name">{dealer.name}</span>
+                            <template lwc:if={dealer.category}>
+                                <span class="de-da-badge">{dealer.category}</span>
+                            </template>
+                        </div>
+                        <p class="de-da-address">{dealer.address}</p>
+                        <template lwc:if={dealer.hasMapsUrl}>
+                            <button class="de-da-maps-link" data-url={dealer.mapsUrl} onclick={handleMapsClick}>
+                                <span class="de-da-maps-icon">&#128205;</span>
+                                <span>Open in Google Maps</span>
+                            </button>
+                        </template>
+                    </article>
+                </template>
+            </div>
+        </template>
+
+        <template lwc:if={showFeedback}>
+            <div class="de-da-feedback">
+                <p class="de-da-feedback-text">I hope this helps?</p>
+                <div class="de-da-feedback-buttons">
+                    <button
+                        class={yesBtnClass}
+                        data-value="Yes"
+                        onclick={handleFeedbackClick}
+                    >Yes</button>
+                    <button
+                        class={noBtnClass}
+                        data-value="No"
+                        onclick={handleFeedbackClick}
+                    >No</button>
+                </div>
+            </div>
+        </template>
+    </div>
+</template>

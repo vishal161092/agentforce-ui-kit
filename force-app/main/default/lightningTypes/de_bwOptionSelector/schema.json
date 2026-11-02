@@ -1,0 +1,5 @@
+{
+  "title" : "Brightwave Option Selector",
+  "description" : "Displays selectable options as clickable buttons for Brightwave agents conversations",
+  "lightning:type" : "@apexClassType/c__de_BW_ShowOptions$OptionsResponse"
+}

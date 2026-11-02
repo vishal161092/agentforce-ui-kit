@@ -1,0 +1,14 @@
+{
+  "required" : [ "productCarouselJSON" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "productCarouselJSON" : {
+      "title" : "Product Carousel JSON",
+      "description" : "Render the Carousel for the \"Brightwave\" gift cards\n",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

@@ -1,0 +1,40 @@
+<template>
+    <div class="de-bw-root">
+        <template lwc:if={hasOptions}>
+            <div class="de-bw-list">
+                <template for:each={normalizedOptions} for:item="option">
+                    <button
+                        key={option.id}
+                        class={option.cardClass}
+                        data-value={option.value}
+                        onclick={handleOptionClick}
+                    >
+                        <span class="de-bw-left">
+                            <span class="de-bw-icon-wrap">
+                                <img src={option.iconUrl} alt="" class="de-bw-img" />
+                            </span>
+                            <span class="de-bw-copy">
+                                <span class="de-bw-title">{option.title}</span>
+                                <template lwc:if={option.subtitle}>
+                                    <span class="de-bw-subtitle">{option.subtitle}</span>
+                                </template>
+                            </span>
+                        </span>
+                        <span class="de-bw-check">
+                            <template lwc:if={option.selected}>
+                                <lightning-icon
+                                    icon-name="utility:check"
+                                    size="x-small"
+                                    class="de-bw-check-icon"
+                                ></lightning-icon>
+                            </template>
+                            <template lwc:if={option.notSelected}>
+                                <span class="de-bw-arrow">&#8250;</span>
+                            </template>
+                        </span>
+                    </button>
+                </template>
+            </div>
+        </template>
+    </div>
+</template>

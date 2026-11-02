@@ -1,0 +1,55 @@
+<template>
+    <div class="de-card-root">
+        <article class="de-card-container">
+            <div class="de-card-image-section">
+                <img src={productImageUrl} alt={productName} class="de-card-image" />
+            </div>
+
+            <div class="de-card-content">
+                <h2 class="de-card-product-name">{productName}</h2>
+                <p class="de-card-description">{productDescription}</p>
+
+                <template lwc:if={tyreSize}>
+                    <div class="de-card-spec">
+                        <span class="de-card-spec-label">Tyre Size</span>
+                        <span class="de-card-spec-value">{tyreSize}</span>
+                    </div>
+                </template>
+
+                <template lwc:if={hasFeatures}>
+                    <div class="de-card-features">
+                        <span class="de-card-features-label">Features</span>
+                        <ul class="de-card-features-list">
+                            <template for:each={features} for:item="feature">
+                                <li key={feature.id} class="de-card-feature-item">
+                                    <span class="de-card-feature-check">&#10003;</span>
+                                    <span>{feature.text}</span>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                </template>
+
+                <button class="de-card-cta" onclick={handleCtaClick}>{ctaLabel}</button>
+            </div>
+        </article>
+
+        <template lwc:if={showFeedback}>
+            <div class="de-card-feedback">
+                <p class="de-card-feedback-text">I hope this helps?</p>
+                <div class="de-card-feedback-buttons">
+                    <button
+                        class={yesBtnClass}
+                        data-value="Yes"
+                        onclick={handleFeedbackClick}
+                    >Yes</button>
+                    <button
+                        class={noBtnClass}
+                        data-value="No"
+                        onclick={handleFeedbackClick}
+                    >No</button>
+                </div>
+            </div>
+        </template>
+    </div>
+</template>

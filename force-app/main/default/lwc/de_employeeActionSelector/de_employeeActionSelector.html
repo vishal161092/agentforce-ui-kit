@@ -1,0 +1,14 @@
+<template>
+    <div class="selector-shell">
+        <p class="selector-title">Available Service Requests</p>
+        <p class="selector-subtitle">Type the option name below to continue</p>
+        <div class="options-list">
+            <template for:each={cards} for:item="card">
+                <div key={card.id} class="option-row">
+                    <span class="option-dot"></span>
+                    <span class="option-label">{card.label}</span>
+                </div>
+            </template>
+        </div>
+    </div>
+</template>

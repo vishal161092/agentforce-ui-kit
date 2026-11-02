@@ -1,0 +1,99 @@
+<template>
+    <lightning-card icon-name="utility:file">
+        <span slot="title" class="de-card-title">{cardTitle}</span>
+
+        <div class="de-dossier">
+            <!-- Dossier status banner -->
+            <div class="de-status-banner">
+                <lightning-icon icon-name="utility:shield" size="xx-small" variant="inverse"></lightning-icon>
+                <span>{dossierStatus}</span>
+            </div>
+
+            <!-- Empty state -->
+            <template if:true={isEmpty}>
+                <div class="de-empty">
+                    <lightning-icon icon-name="utility:info" size="x-small"></lightning-icon>
+                    <p>No files configured yet. Edit this page in App Builder and paste the three ContentDocument Ids into <b>File 1 / 2 / 3 Id</b>.</p>
+                </div>
+            </template>
+
+            <!-- File cards (collapsible) -->
+            <template for:each={files} for:item="file">
+                <div key={file.key} class="de-file-card">
+                    <template if:true={file.hasId}>
+                        <!-- Compact header row (click to expand) -->
+                        <div class="de-row" data-key={file.key} onclick={handleToggle}>
+                            <div class="de-thumb">
+                                <template if:true={file.showImage}>
+                                    <img
+                                        src={file.previewUrl}
+                                        data-id={file.docId}
+                                        alt={file.heading}
+                                        onerror={handleImageError} />
+                                </template>
+                                <template if:false={file.showImage}>
+                                    <lightning-icon icon-name={file.iconName} size="small"></lightning-icon>
+                                </template>
+                            </div>
+
+                            <div class="de-row-meta">
+                                <div class="de-row-title">{file.heading}</div>
+                                <div class="de-row-sub">
+                                    <span>{file.fileType}</span>
+                                    <span class={file.verdictClass}>{file.verdict}</span>
+                                </div>
+                            </div>
+
+                            <div class="de-row-actions">
+                                <lightning-button-icon
+                                    icon-name="utility:preview"
+                                    variant="border-filled"
+                                    size="small"
+                                    alternative-text="Preview file"
+                                    title="Preview file"
+                                    data-id={file.docId}
+                                    onclick={handlePreview}></lightning-button-icon>
+                                <lightning-icon
+                                    icon-name={file.chevron}
+                                    size="x-small"
+                                    class="de-chevron"></lightning-icon>
+                            </div>
+                        </div>
+
+                        <!-- Collapsible analysis body -->
+                        <div class={file.bodyClass}>
+                            <p class="de-summary">{file.summary}</p>
+
+                            <ul class="de-findings">
+                                <template for:each={file.findings} for:item="finding">
+                                    <li key={finding.key} class={finding.itemClass}>
+                                        <lightning-icon
+                                            icon-name={finding.icon}
+                                            size="xx-small"
+                                            variant={finding.iconVariant}></lightning-icon>
+                                        <span>{finding.text}</span>
+                                    </li>
+                                </template>
+                            </ul>
+
+                            <div class="de-confidence">
+                                <div class="de-confidence-label">
+                                    <span>AI confidence</span>
+                                    <span class="de-confidence-val">{file.confidence}%</span>
+                                </div>
+                                <div class="de-confidence-track">
+                                    <div class="de-confidence-fill" style={file.confidenceStyle}></div>
+                                </div>
+                            </div>
+
+                            <div class="de-reco">
+                                <lightning-icon icon-name="utility:einstein" size="xx-small"></lightning-icon>
+                                <span><b>Recommendation:</b> {file.recommendation}</span>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

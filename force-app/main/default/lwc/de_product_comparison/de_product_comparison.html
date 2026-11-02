@@ -1,0 +1,55 @@
+<template>
+    <template lwc:if={errorMessage}>
+        <div class="de-error">{errorMessage}</div>
+    </template>
+
+    <template lwc:if={hasProducts}>
+        <div class="de-wrap">
+            <p class="de-title">Product Comparison</p>
+            <div class="de-grid">
+                <template for:each={products} for:item="product">
+                    <article key={product.key} class="de-card">
+                        <header class="de-card-header">
+                            <p class="de-name">{product.name}</p>
+                            <p class="de-id">{product.id}</p>
+                        </header>
+                        <dl class="de-specs">
+                            <div class="de-row">
+                                <dt>Engine</dt>
+                                <dd>{product.engine}</dd>
+                            </div>
+                            <div class="de-row">
+                                <dt>Power</dt>
+                                <dd>{product.power}</dd>
+                            </div>
+                            <div class="de-row">
+                                <dt>Torque</dt>
+                                <dd>{product.torque}</dd>
+                            </div>
+                            <div class="de-row">
+                                <dt>Transmission</dt>
+                                <dd>{product.transmission}</dd>
+                            </div>
+                            <div class="de-row">
+                                <dt>Fuel Efficiency</dt>
+                                <dd>{product.fuelEfficiency}</dd>
+                            </div>
+                            <div class="de-row">
+                                <dt>Seating</dt>
+                                <dd>{product.seatingCapacity}</dd>
+                            </div>
+                            <div class="de-row">
+                                <dt>Launch Date</dt>
+                                <dd>{product.launchDate}</dd>
+                            </div>
+                            <div class="de-row">
+                                <dt>Safety Features</dt>
+                                <dd>{product.safetyFeatures}</dd>
+                            </div>
+                        </dl>
+                    </article>
+                </template>
+            </div>
+        </div>
+    </template>
+</template>

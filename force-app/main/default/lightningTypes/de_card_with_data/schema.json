@@ -1,0 +1,5 @@
+{
+  "title" : "Card With Data Response",
+  "description" : "Renders a product detail card with image, specs, and features",
+  "lightning:type" : "@apexClassType/c__de_CardWithDataInfo"
+}

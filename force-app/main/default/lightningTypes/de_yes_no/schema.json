@@ -1,0 +1,5 @@
+{
+  "title" : "Yes No Prompt",
+  "description" : "Renders a simple Yes/No prompt that sends the selected value to chat",
+  "lightning:type" : "@apexClassType/c__de_YesNoInfo"
+}

@@ -1,0 +1,35 @@
+<template>
+    <div class="item-selector-container">
+        <!-- Title -->
+        <template if:true={title}>
+            <h3 class="selector-title">{title}</h3>
+        </template>
+        
+        <!-- Items -->
+        <template if:true={hasItems}>
+            <div class="pill-container">
+                <template for:each={itemsWithState} for:item="item">
+                    <button 
+                        key={item.key}
+                        class={item.buttonClass}
+                        data-label={item.label}
+                        onclick={handleItemClick}>
+                        {item.label}
+                    </button>
+                </template>
+            </div>
+            
+            <!-- Submit button for multiple mode -->
+            <template if:true={showSubmitButton}>
+                <div class="submit-container">
+                    <button class="submit-button" onclick={handleSubmit} aria-label="Submit selection">
+                        <svg class="checkmark-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                            <path d="M7 12L10.5 15.5L17 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </template>
+        </template>
+    </div>
+</template>

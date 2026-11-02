@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Assign_Details_To_Options</name>
+        <label>Assign Details To Options</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>Options.itemSelectorJSON</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Details</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <description>You must always format your options for the user to select in this format.</description>
+    <environments>Default</environments>
+    <interviewLabel>Format Options Output {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Format Options Output</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Assign_Details_To_Options</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>This is the full detail to send over and format in this way: 
+
+{&quot;title&quot;: &quot;Select your age range&quot;, &quot;mode&quot;: &quot;single&quot;, &quot;items&quot;: [&quot;19-29&quot;, &quot;30-39&quot;, &quot;40-49&quot;, &quot;50+&quot;, &quot;Prefer not to say&quot;]}
+
+&quot;single&quot; - Click a button and it sends immediately
+&quot;multiple&quot; - Select multiple buttons, then click Submit
+
+{&quot;mode&quot;: &quot;test-single&quot;} and {&quot;mode&quot;: &quot;test-multiple&quot;} are the inputs if the user asks to format using test single or testing multiple.</description>
+        <name>Details</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Show to the user</description>
+        <name>Options</name>
+        <apexClass>AsaItemSelectorData</apexClass>
+        <dataType>Apex</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

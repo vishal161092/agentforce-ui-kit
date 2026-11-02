@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Returns a displayable secure one-time gift-card link as a clickable card rendered by the de_OptionsSelection_v2 Lightning Type.</description>
+    <developerName>Generate_Secure_Link_Card</developerName>
+    <invocationTarget>DeSecureLinkAction</invocationTarget>
+    <invocationTargetType>apex</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+    <localDeveloperName>Generate_Secure_Link_Card</localDeveloperName>
+    <masterLabel>Generate Secure Link Card</masterLabel>
+    <progressIndicatorMessage>Generating your secure link ...</progressIndicatorMessage>
+</GenAiFunction>

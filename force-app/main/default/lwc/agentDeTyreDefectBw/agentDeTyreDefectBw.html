@@ -1,0 +1,116 @@
+<template>
+    <div class="de-bw-defect-root">
+
+        <!-- Step 1: Upload Images -->
+        <template lwc:if={isUploadStep}>
+            <div class="de-bw-defect-card">
+                <div class="de-bw-defect-header">
+                    <span class="de-bw-defect-icon-wrap de-bw-defect-icon-upload">
+                        <lightning-icon icon-name="utility:image" size="x-small" class="de-bw-defect-white-icon"></lightning-icon>
+                    </span>
+                    <span class="de-bw-defect-header-text">Registration Found</span>
+                </div>
+                <div style="color: #374151; font-weight: 700; text-align: center; font-size: 16px; padding-top: 10px;">We have found your tyre!</div>
+                <div style="color: #374151; padding-top: 10px;">You registered a <b>Brightwave Zenova Street Z1 (Size: 90/90-12)</b> on <b>January 15, 2026</b>. Your tyre has <b>4 years and 7 months</b> of remaining warranty. </div>
+                <div style="color: #374151; padding-top: 10px; padding-bottom: 10px;">Let's get this assessed by Analyzing Images.</div>
+                <p class="de-bw-defect-instruction">To help me analyze the issue, please upload 3 clear, well-lit images of the tyre:</p>
+                <ol class="de-bw-defect-list">
+                    <li>1. A photo of the <strong>defect area</strong>.</li>
+                    <li>2. A photo of the <strong>tyre sidewall</strong> showing the Serial Number and production code.</li>
+                    <li>3. A photo of the <strong>tread pattern</strong> (front view) so we can check the remaining tread depth.</li>
+                </ol>
+
+                <template lwc:if={caseId}>
+                    <div class="de-bw-defect-upload-area">
+                        <lightning-file-upload
+                            label="Upload Tyre Images"
+                            name="tyreImageUploader"
+                            record-id={caseId}
+                            onuploadfinished={handleUploadFinished}
+                            accept={acceptedFormats}
+                            multiple
+                            disabled={uploadDisabled}>
+                        </lightning-file-upload>
+                    </div>
+                    <template lwc:if={hasFiles}>
+                        <p class="de-bw-defect-file-count">{fileCountLabel}</p>
+                    </template>
+                    <template lwc:if={canSubmit}>
+                        <button class="de-bw-defect-submit-btn" onclick={handleSubmit}>
+                            Submit for Analysis
+                        </button>
+                    </template>
+                </template>
+            </div>
+        </template>
+
+        <!-- Step 2: Loading / Analyzing -->
+        <template lwc:if={isLoadingStep}>
+            <div class="de-bw-defect-card">
+                <div class="de-bw-defect-loading-content">
+                    <p class="de-bw-defect-loading-text">Thank you! I have successfully received the images. Please wait while I analyze the image.</p>
+
+                    <!-- Uploaded file names -->
+                    <div class="de-bw-defect-files">
+                        <template for:each={uploadedFileNames} for:item="fileName">
+                            <div key={fileName} class="de-bw-defect-file-row">
+                                <lightning-icon icon-name="utility:file" size="xx-small" class="de-bw-defect-file-icon"></lightning-icon>
+                                <span class="de-bw-defect-file-name">{fileName}</span>
+                            </div>
+                        </template>
+                    </div>
+
+                    <!-- Progress bar -->
+                    <div class="de-bw-defect-progress-wrap">
+                        <div class="de-bw-defect-progress-bar">
+                            <div class="de-bw-defect-progress-fill"></div>
+                        </div>
+                        <p class="de-bw-defect-progress-label">Analyzing images...</p>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <!-- Step 3: Analysis Result -->
+        <template lwc:if={isResultStep}>
+            <div class="de-bw-defect-card de-bw-defect-result-card">
+                <div class="de-bw-defect-header">
+                    <span class="de-bw-defect-icon-wrap">
+                        <lightning-icon icon-name="utility:check" size="x-small" class="de-bw-defect-white-icon"></lightning-icon>
+                    </span>
+                    <span class="de-bw-defect-header-text">Analysis Complete</span>
+                </div>
+                <p class="de-bw-defect-analysis">{analysisMessage}</p>
+                <div class="de-bw-defect-result">
+                    <p class="de-bw-defect-policy">{policyResult}</p>
+                    <p class="de-bw-defect-disclaimer">{disclaimer}</p>
+                </div>
+                <p class="de-bw-defect-voucher-msg">{voucherMessage}</p>
+                <template lwc:if={hasVoucher}>
+                    <button class="de-bw-defect-voucher-btn" onclick={handleDownloadVoucher}>
+                        <lightning-icon icon-name="utility:download" size="xx-small" class="de-bw-defect-dl-icon"></lightning-icon>
+                        <span>Download Voucher (PDF)</span>
+                    </button>
+                </template>
+            </div>
+
+            <!-- Follow-up with Yes/No -->
+            <template lwc:if={showFollowUp}>
+                <div class="de-bw-defect-followup">
+                    <p class="de-bw-defect-followup-text">{followUpMessage}</p>
+                    <div class="de-bw-yn-buttons">
+                        <button class={yesBtnClass} onclick={handleYesClick}>
+                            <span class="de-bw-yn-icon">&#10003;</span>
+                            <span>Yes</span>
+                        </button>
+                        <button class={noBtnClass} onclick={handleNoClick}>
+                            <span class="de-bw-yn-icon">&#10005;</span>
+                            <span>No</span>
+                        </button>
+                    </div>
+                </div>
+            </template>
+        </template>
+
+    </div>
+</template>

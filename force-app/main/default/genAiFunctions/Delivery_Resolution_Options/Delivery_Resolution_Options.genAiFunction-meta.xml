@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Returns the two delivery-resolution option cards (resend / secure link) for the de_OptionsSelection_v2 Lightning Type.</description>
+    <developerName>Delivery_Resolution_Options</developerName>
+    <invocationTarget>DeDeliveryResolutionAction</invocationTarget>
+    <invocationTargetType>apex</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+    <localDeveloperName>Delivery_Resolution_Options</localDeveloperName>
+    <masterLabel>Delivery Resolution Options</masterLabel>
+</GenAiFunction>

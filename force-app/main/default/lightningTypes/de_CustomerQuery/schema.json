@@ -1,0 +1,5 @@
+{
+  "title": "Customer Query",
+  "description": "Structured payload for the de_CustomerQuery chat card.",
+  "lightning:type": "@apexClassType/c__de_CustomerQueryInfo"
+}

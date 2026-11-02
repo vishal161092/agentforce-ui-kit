@@ -1,0 +1,26 @@
+<template>
+    <article class="tc-card">
+        <template lwc:if={imageUrl}>
+            <img class="tc-img" src={imageUrl} alt={tyreName} />
+        </template>
+        <div class="tc-body">
+            <h3 class="tc-name">{tyreName}</h3>
+            <template lwc:if={tyreSize}>
+                <span class="tc-size">{tyreSize}</span>
+            </template>
+            <template lwc:if={tyreDescription}>
+                <p class="tc-desc">{tyreDescription}</p>
+            </template>
+            <template lwc:if={hasFeatures}>
+                <ul class="tc-features">
+                    <template for:each={featureList} for:item="f">
+                        <li key={f.key}>{f.label}</li>
+                    </template>
+                </ul>
+            </template>
+            <template lwc:if={productUrl}>
+                <button class="tc-cta" onclick={handleOpen}>View details</button>
+            </template>
+        </div>
+    </article>
+</template>

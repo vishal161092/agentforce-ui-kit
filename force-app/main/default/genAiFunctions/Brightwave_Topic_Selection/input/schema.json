@@ -1,0 +1,25 @@
+{
+  "required" : [ "options" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "options" : {
+      "title" : "options",
+      "description" : "Below are the input options\n\"I'm looking to buy a gift card\", \"I placed an order and need assistance\", \"I received a gift card and I need help\"  ",
+      "maxItems" : 2000,
+      "items" : {
+        "lightning:type" : "lightning__textType"
+      },
+      "lightning:type" : "lightning__listType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "questionLabel" : {
+      "title" : "questionLabel",
+      "description" : "This is the question label",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

@@ -1,0 +1,54 @@
+.image-card {
+    border: 2px solid #dddbda;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: #ffffff;
+    position: relative;
+}
+
+.image-card:hover {
+    border-color: #0176d3;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.image-card.selected {
+    border-color: #2e844a;
+    border-width: 3px;
+    box-shadow: 0 2px 8px rgba(46, 132, 74, 0.3);
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+}
+
+.image-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.25rem;
+    display: block;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background-color: #2e844a;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.checkmark::after {
+    content: '✓';
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: bold;
+    line-height: 1;
+}

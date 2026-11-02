@@ -1,0 +1,170 @@
+<template>
+    <!-- ═══════ POPUP (default) ═══════ -->
+    <template lwc:if={isPopup}>
+        <template lwc:if={isVisible}>
+            <div class={popupClass} style={popupSizeStyle}>
+                <div class="de-promo-bg" lwc:dom="manual"></div>
+                <div class={overlayClass}></div>
+                <div class="de-promo-content">
+                    <div class="de-promo-topbar">
+                        <span class={wordmarkClass}>{brandLabel}</span>
+                        <button class={closeClass} onclick={handleDismiss} aria-label="Close">&#10005;</button>
+                    </div>
+                    <div class="de-promo-spacer"></div>
+                    <div class={glassClass}>
+                        <div class={badgeClass}>
+                            <span class="de-promo-dot" style={badgeDotStyle}></span>
+                            <span class={badgeTextClass}>{badgeText}</span>
+                        </div>
+                        <h3 class={headlineClass}>{headline}</h3>
+                        <p class={descClass}>{description}</p>
+                        <template lwc:if={showOptions}>
+                            <div class="de-promo-options">
+                                <template for:each={topicOptions} for:item="opt">
+                                    <button key={opt.key} class="de-promo-option" data-message={opt.label} onclick={handleOptionClick}>
+                                        <lightning-icon icon-name={opt.icon} size="small" variant="inverse" class="de-promo-option-ico"></lightning-icon>
+                                        <span class="de-promo-option-label">{opt.label}</span>
+                                        <span class="de-promo-option-arrow">&#8250;</span>
+                                    </button>
+                                </template>
+                            </div>
+                        </template>
+                        <template lwc:else>
+                            <button class="de-promo-cta" style={buttonStyle} onclick={handleChat}>
+                                <span class="de-promo-sparkle">&#10022;</span>
+                                <span>{buttonText}</span>
+                            </button>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </template>
+
+    <!-- ═══════ EXIT-INTENT ═══════ -->
+    <template lwc:if={isExitIntent}>
+        <div class={exitOverlayClass}>
+            <div class={exitCardClass}>
+                <button class={exitCloseClass} onclick={handleDismiss} aria-label="Close">&#10005;</button>
+                <h3 class={exitHeadlineClass}>{headline}</h3>
+                <p class={exitDescClass}>{description}</p>
+                <button class="de-promo-cta" style={buttonStyle} onclick={handleChat}>
+                    <span class="de-promo-sparkle">&#10022;</span>
+                    <span>{buttonText}</span>
+                </button>
+            </div>
+        </div>
+    </template>
+
+    <!-- ═══════ SPLIT-SCREEN ═══════ -->
+    <template lwc:if={isSplitScreen}>
+        <div class={splitWrapperClass}>
+            <button class={splitTabClass} style={splitTabStyle} onclick={togglePanel}>
+                <span class="de-promo-sparkle">&#10022;</span>
+                <span>{badgeText}</span>
+            </button>
+            <div class={splitPanelClass}>
+                <h3 class={splitHeadlineClass}>{headline}</h3>
+                <p class={splitDescClass}>{description}</p>
+                <button class="de-promo-cta" style={buttonStyle} onclick={handleChat}>
+                    <span class="de-promo-sparkle">&#10022;</span>
+                    <span>{buttonText}</span>
+                </button>
+            </div>
+        </div>
+    </template>
+
+    <!-- ═══════ BUBBLE ═══════ -->
+    <template lwc:if={isBubble}>
+        <div class={bubbleWrapperClass}>
+            <button class={bubbleTriggerClass} style={bubbleIcoStyle} onclick={toggleBubble} aria-label="Open chat promo">
+                <span class="de-bubble-ico">&#10022;</span>
+            </button>
+            <div class={bubbleCardClass}>
+                <button class={closeClass} onclick={handleDismiss} aria-label="Close">&#10005;</button>
+                <h3 class={bubbleHeadlineClass}>{headline}</h3>
+                <p class={bubbleDescClass}>{description}</p>
+                <button class="de-promo-cta" style={buttonStyle} onclick={handleChat}>
+                    <span class="de-promo-sparkle">&#10022;</span>
+                    <span>{buttonText}</span>
+                </button>
+            </div>
+        </div>
+    </template>
+
+    <!-- ═══════ BELL ═══════ -->
+    <template lwc:if={isBell}>
+        <div class={bellWrapperClass}>
+            <button class={bellTriggerClass} onclick={toggleBell} aria-label="Notifications">
+                <span class="de-bell-ico">&#128276;</span>
+                <span class="de-bell-badge-dot"></span>
+            </button>
+            <div class={bellCardClass}>
+                <div class="de-bell-header" style={bellHeaderStyle}>
+                    <span class="de-bell-header-txt">{badgeText}</span>
+                </div>
+                <div class="de-bell-body">
+                    <h3 class={bellHeadlineClass}>{headline}</h3>
+                    <p class={bellDescClass}>{description}</p>
+                    <button class="de-promo-cta" style={buttonStyle} onclick={handleChat}>
+                        <span class="de-promo-sparkle">&#10022;</span>
+                        <span>{buttonText}</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- ═══════ TYRE-RING ═══════ -->
+    <template lwc:if={isTyreRing}>
+        <div class={tyreWrapperClass}>
+            <button class={tyreTriggerClass} style={tyreTrigStyle} onclick={toggleTyreCard} aria-label="Open tyre assistant">
+                <span class="de-tyre-ico">&#9881;</span>
+            </button>
+            <div class={tyreCardClass}>
+                <button class={closeClass} onclick={handleDismiss} aria-label="Close">&#10005;</button>
+                <h3 class={tyreHeadlineClass}>{headline}</h3>
+                <p class={tyreDescClass}>{description}</p>
+                <button class="de-promo-cta" style={buttonStyle} onclick={handleChat}>
+                    <span class="de-promo-sparkle">&#10022;</span>
+                    <span>{buttonText}</span>
+                </button>
+            </div>
+        </div>
+    </template>
+
+    <!-- ═══════ RIBBON ═══════ -->
+    <template lwc:if={isRibbon}>
+        <div class={ribbonWrapperClass}>
+            <button class={ribbonBandClass} style={ribbonBandStyle} onclick={toggleRibbonCard}>
+                <span class="de-ribbon-label">{badgeText}</span>
+            </button>
+            <div class={ribbonCardClass}>
+                <button class={closeClass} onclick={handleDismiss} aria-label="Close">&#10005;</button>
+                <h3 class={ribbonHeadlineClass}>{headline}</h3>
+                <p class={ribbonDescClass}>{description}</p>
+                <button class="de-promo-cta" style={buttonStyle} onclick={handleChat}>
+                    <span class="de-promo-sparkle">&#10022;</span>
+                    <span>{buttonText}</span>
+                </button>
+            </div>
+        </div>
+    </template>
+
+    <!-- ═══════ LANDSCAPE ═══════ -->
+    <template lwc:if={isLandscape}>
+        <div class={landscapeWrapperClass}>
+            <div class={landscapeCardClass} style={landBorderStyle}>
+                <button class={landscapeCloseClass} onclick={handleDismiss} aria-label="Close">&#10005;</button>
+                <div class="de-land-body">
+                    <h3 class={landscapeHeadlineClass}>{headline}</h3>
+                    <p class={landscapeDescClass}>{description}</p>
+                </div>
+                <button class="de-promo-cta de-land-cta" style={buttonStyle} onclick={handleChat}>
+                    <span class="de-promo-sparkle">&#10022;</span>
+                    <span>{buttonText}</span>
+                </button>
+            </div>
+        </div>
+    </template>
+</template>

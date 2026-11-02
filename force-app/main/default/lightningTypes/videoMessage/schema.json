@@ -1,0 +1,5 @@
+{
+  "title" : "Video Message",
+  "description" : "Placeholder output for video message content",
+  "lightning:type" : "@apexClassType/c__VideoMessageInfo"
+}

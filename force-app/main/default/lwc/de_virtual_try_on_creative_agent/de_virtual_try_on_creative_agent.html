@@ -1,0 +1,173 @@
+<template>
+    <div class="container">
+        <div class="brand-shell">
+        <!-- Header -->
+        <div class="header">
+            <lightning-icon icon-name="utility:diamond" size="x-small" class="brand-icon"></lightning-icon>
+            <div class="slds-m-left_x-small">
+                <p class="brand-kicker">Brightwave Bridal</p>
+                <h2 class="brand-title">Virtual Try-On Studio</h2>
+            </div>
+        </div>
+
+        <!-- Upload Section -->
+        <template if:false={showResults}>
+            <div class="upload-section">
+                <template if:false={personFileName}>
+                    <label class="upload-drop-zone" for="person-upload">
+                        <div class="upload-content">
+                            <lightning-icon icon-name="utility:photo" size="large" class="upload-icon"></lightning-icon>
+                            <p class="upload-title">Upload Your Bridal Portrait</p>
+                            <p class="upload-subtitle">Full body preferred for best drape and jewelry placement</p>
+                        </div>
+                        <input
+                            type="file"
+                            id="person-upload"
+                            accept="image/png,image/jpeg,image/webp"
+                            onchange={handlePersonFileChange}
+                            class="slds-hide"
+                        />
+                    </label>
+                </template>
+                <template if:true={personFileName}>
+                    <div class="person-preview-container">
+                        <div class="person-preview-image">
+                            <img src={personPreviewUrl} alt="Your photo" />
+                        </div>
+                        <div class="person-preview-actions">
+                            <lightning-button-icon
+                                icon-name="utility:close"
+                                variant="bare"
+                                size="medium"
+                                alternative-text="Remove"
+                                onclick={handleRemovePersonFile}
+                                class="remove-btn"
+                            ></lightning-button-icon>
+                        </div>
+                    </div>
+                </template>
+
+                <div class="slds-m-top_medium slds-text-align_center">
+                    <lightning-button
+                        variant="brand"
+                        label={generateButtonLabel}
+                        onclick={handleGenerate}
+                        disabled={isGenerateDisabled}
+                        class="generate-btn"
+                    ></lightning-button>
+                </div>
+            </div>
+        </template>
+
+        <!-- Loading State -->
+        <template if:true={isLoading}>
+            <div class="loading-section">
+                <div class="ai-loading-shell" aria-live="polite">
+                    <div class="ai-loading-sparkle" aria-hidden="true"></div>
+                    <div class="ai-loading-copy">
+                        <p class="ai-loading-title">Crafting your Rivaah look with AI</p>
+                        <p class="ai-loading-subtitle">{statusMessage}</p>
+                    </div>
+                    <span class="ai-loading-dots" aria-hidden="true">
+                        <span></span><span></span><span></span>
+                    </span>
+                </div>
+            </div>
+        </template>
+
+        <!-- Error -->
+        <template if:true={errorMessage}>
+            <div class="slds-m-top_medium slds-p-around_small error-box">
+                <p>{errorMessage}</p>
+            </div>
+        </template>
+
+        <!-- Results -->
+        <template if:true={showResults}>
+            <div class="results-section">
+                <div class="results-grid">
+                    <template if:true={tryOnImageUrl}>
+                        <div class="result-card">
+                            <div class="result-label">Try-On</div>
+                            <div class="result-image-frame">
+                                <div class="result-image">
+                                <img src={tryOnImageUrl} alt="Try-on result" />
+                                </div>
+                            </div>
+                            <div class="result-card-actions">
+                                <button
+                                    class="expand-link"
+                                    data-image={tryOnImageUrl}
+                                    data-title="Try-On Preview"
+                                    onclick={handleOpenImagePreview}
+                                >
+                                    View Full Size
+                                </button>
+                            </div>
+                        </div>
+                    </template>
+                    <template if:true={finalImageUrl}>
+                        <div class="result-card featured">
+                            <div class="result-label">Final Look</div>
+                            <div class="result-image-frame">
+                                <div class="result-image">
+                                <img src={finalImageUrl} alt="Final result" />
+                                </div>
+                            </div>
+                            <div class="result-card-actions">
+                                <button
+                                    class="expand-link"
+                                    data-image={finalImageUrl}
+                                    data-title="Final Look Preview"
+                                    onclick={handleOpenImagePreview}
+                                >
+                                    View Full Size
+                                </button>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+                <div class="results-actions">
+                    <lightning-button
+                        label="Download Look"
+                        icon-name="utility:download"
+                        variant="brand"
+                        onclick={handleDownload}
+                    ></lightning-button>
+                    <lightning-button
+                        label="Try Again"
+                        icon-name="utility:refresh"
+                        variant="neutral"
+                        onclick={handleReset}
+                        class="slds-m-left_small try-again-btn"
+                    ></lightning-button>
+                </div>
+                <p class="ai-disclaimer">
+                    Disclaimer: These visuals are AI-generated previews intended for styling guidance and may vary from real-world jewelry appearance.
+                </p>
+            </div>
+        </template>
+
+        <template if:true={showImagePreviewModal}>
+            <section class="image-modal" role="dialog" aria-modal="true" onclick={handleModalBackdropClick}>
+                <div class="image-modal-content">
+                    <div class="image-modal-header">
+                        <p class="image-modal-title">{expandedImageTitle}</p>
+                        <lightning-button-icon
+                            icon-name="utility:close"
+                            variant="bare"
+                            size="medium"
+                            alternative-text="Close preview"
+                            onclick={closeImagePreview}
+                            class="image-modal-close"
+                        ></lightning-button-icon>
+                    </div>
+                    <div class="image-modal-body">
+                        <img src={expandedImageUrl} alt={expandedImageTitle} />
+                    </div>
+                </div>
+            </section>
+        </template>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Answers questions about company policies and procedures, troubleshooting steps, or product information. For example: &quot;What is your return policy?&quot;, &quot;How do I fix an issue?&quot; or &quot;What features does a product have?&quot;</description>
+    <developerName>Brightwave_Agent_AnswerQuestionsWithKnowledge</developerName>
+    <invocationTarget>Brightwave_Agent_AtlasRAG</invocationTarget>
+    <invocationTargetType>apex</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+    <localDeveloperName>Brightwave_Agent_AnswerQuestionsWithKnowledge</localDeveloperName>
+    <masterLabel>Brightwave Agent Answer Questions with Knowledge</masterLabel>
+</GenAiFunction>

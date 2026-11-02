@@ -1,0 +1,23 @@
+<template>
+    <div class="query-container">
+        <div class="query-card">
+            <div class="query-header">
+                <lightning-icon icon-name="utility:question" size="small" alternative-text="Question"></lightning-icon>
+                <span class="header-text">Customer Query</span>
+            </div>
+            <div class="query-body">
+                <template lwc:if={hasData}>
+                    <p class="question-label">Question:</p>
+                    <p class="question-text">{question}</p>
+                </template>
+                <template lwc:else>
+                    <p class="question-text">Static test: The component rendered successfully!</p>
+                </template>
+                <div class="answer-section">
+                    <p class="answer-label">Answer:</p>
+                    <p class="answer-text">This is a static response to confirm the Lightning Type renderer is working. The custom LWC card has mounted and is displaying correctly in Enhanced Web Chat.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

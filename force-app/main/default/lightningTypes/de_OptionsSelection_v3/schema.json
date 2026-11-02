@@ -1,0 +1,5 @@
+{
+  "title" : "Options Selection Response V3",
+  "description" : "Renders an image-based two-option selector with recommended look and CTA",
+  "lightning:type" : "@apexClassType/c__DeOptionsSelectionInfoV3"
+}

@@ -1,0 +1,5 @@
+{
+  "title" : "Yes No Dealer Prompt",
+  "description" : "Renders a Yes/No prompt asking if user wants to find a dealer nearby",
+  "lightning:type" : "@apexClassType/c__de_YesNoDealerInfo"
+}

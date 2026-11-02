@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Your role is to help the customers by providing answer to their questions such as What is Select Stock fund, Leaders of Tomorrow, Emerging Leaders of Tomorrow, High growth, Ascent etc. along with fund details such as Investment Objective, Investment Suitability, AUM, ratio analysis, Qualitative Metrics, Quantitative Metrics, Portfolio performance and composition etc.</description>
+    <developerName>Brightwave_FAQ</developerName>
+    <invocationTarget>Brightwave_FAQ</invocationTarget>
+    <invocationTargetType>generatePromptResponse</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+    <localDeveloperName>Brightwave_FAQ</localDeveloperName>
+    <masterLabel>Brightwave FAQ</masterLabel>
+</GenAiFunction>

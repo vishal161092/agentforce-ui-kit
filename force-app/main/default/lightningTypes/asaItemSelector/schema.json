@@ -1,0 +1,5 @@
+{
+  "title" : "ASA Item Selector Response",
+  "description" : "Item selector for ASA with single or multiple selection modes",
+  "lightning:type" : "@apexClassType/c__AsaItemSelectorData"
+}

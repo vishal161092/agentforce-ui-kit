@@ -1,0 +1,5 @@
+{
+  "title" : "Tyre Defect Analysis (Tyres)",
+  "description" : "Renders a tyre defect analysis result card with voucher download and follow-up confirmation",
+  "lightning:type" : "@apexClassType/c__de_TyreDefectInfoBw"
+}

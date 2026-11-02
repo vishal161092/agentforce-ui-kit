@@ -1,0 +1,16 @@
+<template>
+    <div class="recorder">
+        <template lwc:if={speechSupported}>
+            <lightning-button
+                variant="brand"
+                label={listenLabel}
+                onclick={toggleListen}
+            ></lightning-button>
+        </template>
+        <template lwc:else>
+            <p class="slds-text-color_error slds-text-body_small">
+                Speech recognition is not available in this browser.
+            </p>
+        </template>
+    </div>
+</template>

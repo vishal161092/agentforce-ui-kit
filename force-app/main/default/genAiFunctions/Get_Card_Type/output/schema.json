@@ -1,0 +1,15 @@
+{
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "deAsaCarousel" : {
+      "title" : "DE ASA Carousel",
+      "description" : "Output payload for the de_asaCarousel custom Lightning type renderer.",
+      "lightning:type" : "c__de_asaCarousel",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : true,
+      "copilotAction:isUsedByPlanner" : true,
+      "copilotAction:useHydratedPrompt" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

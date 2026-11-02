@@ -1,0 +1,5 @@
+{
+  "title" : "Brightwave Tyre Recommendation Card",
+  "description" : "Displays a tyre recommendation card with image, description, size, and features for Brightwave agents",
+  "lightning:type" : "@apexClassType/c__de_BW_ShowTyreCard$TyreCardResponse"
+}

@@ -1,0 +1,148 @@
+<template>
+    <lightning-card title="Virtual Try-On + Creative Studio" icon-name="custom:custom63">
+        <div class="slds-p-around_medium">
+
+            <div class="slds-box slds-box_x-small slds-theme_shade slds-m-bottom_medium">
+                <p class="slds-text-body_small">
+                    <strong>How it works:</strong> Step 1 — Virtual Try-On maps the exact jewelry onto the person.
+                    Step 2 — Creative model enhances the image with the background, ambience, and styling you describe in the prompt.
+                </p>
+            </div>
+
+            <lightning-textarea
+                label="Prompt (describes environment, styling, and ambience)"
+                value={prompt}
+                onchange={handlePromptChange}
+                placeholder="e.g. Transform [1] into a South Indian bridal portrait, traditional mandapam with jasmine garlands and brass oil lamps, warm golden lighting, Kanchipuram silk saree, fresh gajra flowers in hair, luxury wedding photography"
+                max-length="2000"
+            ></lightning-textarea>
+
+            <div class="slds-grid slds-gutters slds-m-top_medium">
+                <div class="slds-col slds-size_1-of-2">
+                    <p class="slds-text-title_bold slds-m-bottom_x-small">Person Image (full body preferred)</p>
+                    <template if:false={personFileName}>
+                        <label class="upload-area" for="person-upload">
+                            <lightning-icon icon-name="utility:user" size="small" class="slds-m-right_x-small"></lightning-icon>
+                            <span>Upload person photo</span>
+                            <input
+                                type="file"
+                                id="person-upload"
+                                accept="image/png,image/jpeg,image/webp"
+                                onchange={handlePersonFileChange}
+                                class="slds-hide"
+                            />
+                        </label>
+                    </template>
+                    <template if:true={personFileName}>
+                        <div class="file-chip">
+                            <lightning-icon icon-name="doctype:image" size="x-small" class="slds-m-right_xx-small"></lightning-icon>
+                            <span class="slds-truncate">{personFileName}</span>
+                            <lightning-button-icon
+                                icon-name="utility:close"
+                                variant="bare"
+                                size="small"
+                                alternative-text="Remove"
+                                onclick={handleRemovePersonFile}
+                            ></lightning-button-icon>
+                        </div>
+                        <template if:true={personPreviewUrl}>
+                            <div class="preview-wrapper slds-m-top_x-small">
+                                <img src={personPreviewUrl} alt="Person preview" />
+                            </div>
+                        </template>
+                    </template>
+                </div>
+
+                <div class="slds-col slds-size_1-of-2">
+                    <p class="slds-text-title_bold slds-m-bottom_x-small">Jewelry / Product Image</p>
+                    <template if:false={productFileName}>
+                        <label class="upload-area" for="product-upload">
+                            <lightning-icon icon-name="utility:diamond" size="small" class="slds-m-right_x-small"></lightning-icon>
+                            <span>Upload jewelry photo</span>
+                            <input
+                                type="file"
+                                id="product-upload"
+                                accept="image/png,image/jpeg,image/webp"
+                                onchange={handleProductFileChange}
+                                class="slds-hide"
+                            />
+                        </label>
+                    </template>
+                    <template if:true={productFileName}>
+                        <div class="file-chip">
+                            <lightning-icon icon-name="doctype:image" size="x-small" class="slds-m-right_xx-small"></lightning-icon>
+                            <span class="slds-truncate">{productFileName}</span>
+                            <lightning-button-icon
+                                icon-name="utility:close"
+                                variant="bare"
+                                size="small"
+                                alternative-text="Remove"
+                                onclick={handleRemoveProductFile}
+                            ></lightning-button-icon>
+                        </div>
+                        <template if:true={productPreviewUrl}>
+                            <div class="preview-wrapper slds-m-top_x-small">
+                                <img src={productPreviewUrl} alt="Product preview" />
+                            </div>
+                        </template>
+                    </template>
+                </div>
+            </div>
+
+            <div class="slds-m-top_medium">
+                <lightning-button
+                    variant="brand"
+                    label={generateButtonLabel}
+                    onclick={handleGenerate}
+                    disabled={isGenerateDisabled}
+                ></lightning-button>
+            </div>
+
+            <template if:true={isLoading}>
+                <div class="slds-m-top_medium slds-is-relative loading-container">
+                    <lightning-spinner alternative-text="Generating..." size="medium"></lightning-spinner>
+                    <p class="slds-text-align_center slds-m-top_xx-large slds-p-top_large">{statusMessage}</p>
+                </div>
+            </template>
+
+            <template if:true={errorMessage}>
+                <div class="slds-m-top_medium">
+                    <div class="slds-notify slds-notify_alert slds-alert_error" role="alert">
+                        <span class="slds-assistive-text">error</span>
+                        <p>{errorMessage}</p>
+                    </div>
+                </div>
+            </template>
+
+            <template if:true={showResults}>
+                <div class="slds-m-top_medium">
+                    <div class="slds-grid slds-gutters">
+                        <template if:true={tryOnImageUrl}>
+                            <div class="slds-col slds-size_1-of-2">
+                                <p class="slds-text-heading_small slds-m-bottom_small">Step 1: Try-On Result</p>
+                                <div class="image-wrapper">
+                                    <img src={tryOnImageUrl} alt="Try-on result" />
+                                </div>
+                            </div>
+                        </template>
+                        <template if:true={finalImageUrl}>
+                            <div class="slds-col slds-size_1-of-2">
+                                <p class="slds-text-heading_small slds-m-bottom_small">Step 2: Final Output</p>
+                                <div class="image-wrapper">
+                                    <img src={finalImageUrl} alt="Final result" />
+                                </div>
+                                <div class="slds-m-top_small">
+                                    <lightning-button
+                                        label="Download"
+                                        icon-name="utility:download"
+                                        onclick={handleDownload}
+                                    ></lightning-button>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

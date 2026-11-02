@@ -1,0 +1,9 @@
+{
+  "renderer" : {
+    "componentOverrides" : {
+      "$" : {
+        "definition" : "c/de_virtual_try_on_creative_agent"
+      }
+    }
+  }
+}

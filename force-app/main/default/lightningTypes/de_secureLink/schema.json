@@ -1,0 +1,5 @@
+{
+  "title" : "Secure Link Response",
+  "description" : "Renders a branded, clickable secure one-time link card",
+  "lightning:type" : "@apexClassType/c__DeSecureLinkInfo"
+}

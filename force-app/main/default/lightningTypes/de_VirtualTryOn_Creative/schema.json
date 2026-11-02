@@ -1,0 +1,5 @@
+{
+  "title" : "DE Virtual Try-On Creative",
+  "description" : "Virtual try-on and creative image generation output",
+  "lightning:type" : "@apexClassType/c__de_VirtualTryOnCreativeInfo"
+}

@@ -1,0 +1,230 @@
+.de-wrap {
+    max-width: 42rem;
+    font-family: var(--lwc-fontFamily, 'Salesforce Sans', Arial, sans-serif);
+}
+
+.de-ai-banner {
+    background: #f5e6a2;
+    border-radius: 0.75rem;
+    border: 1px solid #e8d078;
+}
+
+.de-ai-icon {
+    flex-shrink: 0;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.de-ai-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #3e3e3c;
+    margin: 0;
+}
+
+.de-ai-body {
+    margin: 0;
+    font-size: 0.8125rem;
+    color: #3e3e3c;
+    line-height: 1.4;
+}
+
+.de-card {
+    background: #ffffff;
+    border-radius: 0.75rem;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    height: 100%;
+}
+
+.de-card-header {
+    align-items: flex-start;
+}
+
+.de-product-title {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #181818;
+}
+
+.de-ribbon {
+    --slds-c-icon-color-foreground-default: #9050e9;
+}
+
+.de-metric-label {
+    font-size: 0.75rem;
+    color: #706e6b;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+}
+
+.de-conversion {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0.125rem 0 0.5rem;
+    line-height: 1.1;
+}
+
+.de-conversion--purple {
+    color: #9050e9;
+}
+
+.de-conversion--orange {
+    color: #e07f26;
+}
+
+.de-bar-track {
+    height: 0.5rem;
+    background: #f3f3f3;
+    border-radius: 0.25rem;
+    overflow: hidden;
+}
+
+.de-bar-fill {
+    height: 100%;
+    border-radius: 0.25rem;
+    transition: width 0.25s ease;
+}
+
+.de-bar-fill--purple {
+    background: linear-gradient(90deg, #b78df0, #9050e9);
+}
+
+.de-bar-fill--orange {
+    background: linear-gradient(90deg, #f4b183, #e07f26);
+}
+
+.de-cycle {
+    font-size: 0.8125rem;
+    color: #3e3e3c;
+}
+
+.de-cycle-icon {
+    --slds-c-icon-color-foreground-default: #706e6b;
+}
+
+.de-cycle-days {
+    color: #181818;
+}
+
+.de-insight {
+    border-radius: 0.75rem;
+    height: 100%;
+    border: 1px solid #e5e5e5;
+}
+
+.de-insight--green {
+    background: #f3faf4;
+    border-color: #cdefc4;
+}
+
+.de-insight--blue {
+    background: #f3f8ff;
+    border-color: #c9e0ff;
+}
+
+.de-insight-icon {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.de-insight-icon--green {
+    background: #2e844a;
+    --slds-c-icon-color-foreground-default: #ffffff;
+}
+
+.de-insight-icon--blue {
+    background: #1589ee;
+    --slds-c-icon-color-foreground-default: #ffffff;
+}
+
+.de-insight-title {
+    font-weight: 700;
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+.de-insight-title--green {
+    color: #2e844a;
+}
+
+.de-insight-title--blue {
+    color: #1589ee;
+}
+
+.de-insight-body {
+    margin: 0;
+    font-size: 0.8125rem;
+    color: #3e3e3c;
+    line-height: 1.4;
+}
+
+.de-footer {
+    background: #032d60;
+    border-radius: 0.75rem;
+    color: #ffffff;
+}
+
+.de-footer-icon {
+    flex-shrink: 0;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    --slds-c-icon-color-foreground-default: #ffffff;
+}
+
+.de-footer-title {
+    font-weight: 700;
+    font-size: 1rem;
+    margin: 0;
+    color: #ffffff;
+}
+
+.de-footer-body {
+    margin: 0;
+    font-size: 0.8125rem;
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.de-footer-cta {
+    appearance: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 0.5rem 1.25rem;
+    border-radius: 1.5rem;
+    background: #a393f0;
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.de-footer-cta:hover {
+    background: #8b7ae8;
+}
+
+.de-footer-cta:active {
+    transform: scale(0.98);
+}
+
+.de-footer-cta-arrow {
+    font-size: 1rem;
+    line-height: 1;
+}

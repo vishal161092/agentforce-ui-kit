@@ -1,0 +1,5 @@
+{
+  "title" : "DE Product Carousel Response",
+  "description" : "Product carousel for DE with title, image URL, and description",
+  "lightning:type" : "@apexClassType/c__de_AsaCarouselData"
+}

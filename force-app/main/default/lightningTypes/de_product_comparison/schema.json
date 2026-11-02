@@ -1,0 +1,5 @@
+{
+  "title" : "DE Product Comparison",
+  "description" : "Compares selected products and returns product comparison details",
+  "lightning:type" : "@apexClassType/c__de_ProductComparisonData"
+}

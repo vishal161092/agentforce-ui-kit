@@ -1,0 +1,28 @@
+<template>
+    <div class="de-options-root">
+        <!-- <template lwc:if={questionLabel}>
+            <p class="de-question">{questionLabel}</p>
+        </template> -->
+
+        <template lwc:if={hasOptions}>
+            <div class="de-options-grid">
+                <template for:each={options} for:item="option">
+                    <button
+                        key={option}
+                        class="de-option-button"
+                        data-value={option}
+                        onclick={handleOptionClick}
+                    >
+                        {option}
+                    </button>
+                </template>
+            </div>
+        </template>
+
+        <template lwc:if={hasNoOptions}>
+            <div class="slds-text-body_regular slds-text-color_weak">
+                No options available
+            </div>
+        </template>
+    </div>
+</template>

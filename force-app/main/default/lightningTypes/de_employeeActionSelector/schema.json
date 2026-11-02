@@ -1,0 +1,5 @@
+{
+  "title" : "DE Employee Action Selector",
+  "description" : "Dynamic employee action options for Agentforce input selection",
+  "lightning:type" : "@apexClassType/c__de_EmployeeActionSelectorInfo"
+}

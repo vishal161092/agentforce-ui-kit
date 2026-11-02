@@ -1,0 +1,166 @@
+.de-da-root {
+    padding: 0.25rem;
+    max-width: 880px;
+}
+
+.de-da-heading {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #017734;
+    margin-bottom: 0.6rem;
+}
+
+.de-da-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.de-da-card {
+    border: 1.5px solid #e2e8f0;
+    border-radius: 0.75rem;
+    background: #ffffff;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.de-da-card:hover {
+    border-color: #017734;
+    box-shadow: 0 4px 12px rgba(1, 119, 52, 0.08);
+}
+
+.de-da-card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.4rem;
+}
+
+.de-da-name {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.de-da-badge {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #017734;
+    background: #f0faf4;
+    border: 1px solid #d9f2e4;
+    border-radius: 0.3rem;
+    padding: 0.15rem 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.de-da-address {
+    margin: 0 0 0.6rem;
+    font-size: 0.84rem;
+    color: #4a4a4f;
+    line-height: 1.45;
+}
+
+.de-da-maps-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #017734;
+    text-decoration: none;
+    padding: 0.4rem 0.7rem;
+    border: 1px solid #d9f2e4;
+    border-radius: 0.4rem;
+    background: #f0faf4;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.de-da-maps-link:hover {
+    background: #d9f2e4;
+    border-color: #017734;
+    text-decoration: none;
+}
+
+.de-da-maps-icon {
+    font-size: 0.9rem;
+}
+
+.de-da-feedback {
+    margin-top: 0.75rem;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 0.75rem;
+    background: #ffffff;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    animation: deDaFeedbackSlideIn 0.3s ease-out;
+}
+
+.de-da-feedback-text {
+    margin: 0 0 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.de-da-feedback-buttons {
+    display: flex;
+    gap: 0.6rem;
+}
+
+.de-da-feedback-btn {
+    appearance: none;
+    -webkit-appearance: none;
+    flex: 1;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 0.5rem;
+    background: #ffffff;
+    color: #1a1a1a;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.de-da-feedback-btn:hover {
+    border-color: #017734;
+    background: #f0faf4;
+    color: #017734;
+}
+
+.de-da-feedback-btn-selected {
+    border-color: #017734;
+    background: #017734;
+    color: #ffffff;
+}
+
+.de-da-feedback-btn-selected:hover {
+    border-color: #017734;
+    background: #017734;
+    color: #ffffff;
+}
+
+.de-da-feedback-btn-no-selected {
+    border-color: #dc2626;
+    background: #dc2626;
+    color: #ffffff;
+}
+
+.de-da-feedback-btn-no-selected:hover {
+    border-color: #dc2626;
+    background: #dc2626;
+    color: #ffffff;
+}
+
+@keyframes deDaFeedbackSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,17 @@
+<template>
+    <article class="dc-card">
+        <header class="dc-header">
+            <span class="dc-name">{dealerName}</span>
+            <template lwc:if={dealerType}>
+                <span class="dc-badge">{dealerType}</span>
+            </template>
+        </header>
+        <p class="dc-address">{address}</p>
+        <template lwc:if={phone}>
+            <p class="dc-phone">{phone}</p>
+        </template>
+        <template lwc:if={mapsLink}>
+            <button class="dc-maps" onclick={handleMapsClick}>Open in Maps</button>
+        </template>
+    </article>
+</template>

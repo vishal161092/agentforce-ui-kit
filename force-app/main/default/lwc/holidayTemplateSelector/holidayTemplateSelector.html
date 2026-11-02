@@ -1,0 +1,17 @@
+<template>
+    <div class="slds-grid slds-wrap slds-gutters">
+        <template for:each={templates} for:item="template">
+            <div key={template.name} class="slds-col slds-size_1-of-2 slds-m-bottom_small">
+                <div class={template.selectedClass} onclick={handleSelect} data-name={template.name}>
+                    <div class="image-container">
+                        <img src={template.url} alt={template.name} />
+                        <template if:true={template.isSelected}>
+                            <div class="checkmark"></div>
+                        </template>
+                    </div>
+                    <p class="slds-text-align_center">{template.name}</p>
+                </div>
+            </div>
+        </template>
+    </div>
+</template>

@@ -1,0 +1,59 @@
+<template>
+    <div class="de-v3-root">
+        <!-- <template lwc:if={questionLabel}>
+            <p class="de-v3-question">{questionLabel}</p>
+        </template> -->
+
+        <template lwc:if={showChoiceCards}>
+            <div class="de-v3-choice-grid">
+                <template for:each={choiceCards} for:item="card">
+                    <button
+                        key={card.id}
+                        class={card.cardClass}
+                        data-value={card.value}
+                        onclick={handleChoiceClick}
+                    >
+                        <img src={card.imageUrl} alt={card.title} class="de-v3-choice-image" />
+                        <span class="de-v3-choice-overlay">
+                            <span class="de-v3-choice-title">{card.title}</span>
+                            <span class="de-v3-choice-subtitle">{card.subtitle}</span>
+                        </span>
+                        <span class={card.tickClass} aria-hidden="true"></span>
+                    </button>
+                </template>
+            </div>
+        </template>
+
+        <template lwc:if={showAiThinking}>
+            <section class="de-v3-ai-thinking" aria-live="polite">
+                <span class="de-v3-ai-sparkle" aria-hidden="true"></span>
+                <div class="de-v3-ai-copy">
+                    <p class="de-v3-ai-title">AI is curating your signature look</p>
+                    <p class="de-v3-ai-subtitle">Analyzing craftsmanship, heritage, and bridal styling...</p>
+                </div>
+                <span class="de-v3-ai-dots" aria-hidden="true">
+                    <span></span><span></span><span></span>
+                </span>
+            </section>
+        </template>
+
+        <template lwc:if={showRecommendation}>
+            <section class="de-v3-recommendation">
+                <div class="de-v3-header">
+                    <p class="de-v3-signature">Your Rivaah Signature</p>
+                    <p class="de-v3-selected-for">{selectedForText}</p>
+                </div>
+
+                <article class="de-v3-product-card">
+                    <img src={recommendedCard.imageUrl} alt={recommendedCard.title} class="de-v3-product-image" />
+                    <div class="de-v3-product-copy">
+                        <p class="de-v3-product-title">{recommendedCard.title}</p>
+                        <p class="de-v3-product-subtitle">{recommendedCard.subtitle}</p>
+                    </div>
+                </article>
+
+                <button class="de-v3-cta" onclick={handleShopClick}>{ctaLabel}</button>
+            </section>
+        </template>
+    </div>
+</template>

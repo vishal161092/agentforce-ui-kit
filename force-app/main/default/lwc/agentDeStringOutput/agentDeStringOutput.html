@@ -1,0 +1,21 @@
+<template>
+    <lightning-card>
+        <div>
+            Record your Query  
+            <c-audio-recorder
+                openai-key={openaiKey}
+                onchange={handleSpeechChange}
+            ></c-audio-recorder>
+        </div>
+        <div class="slds-p-around_medium output-container">
+            <template lwc:if={outputString}>
+                <div class="slds-text-body_regular slds-m-bottom_small">
+                    <p>{outputString}</p>
+                </div>
+            </template>            
+        </div>
+        <div>
+            <lightning-button variant="base" label="Submit" onclick={sendOutputToChat}></lightning-button>
+        </div>
+    </lightning-card>
+</template>

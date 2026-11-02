@@ -1,0 +1,84 @@
+.de-yn-root {
+    padding: 0.25rem;
+    max-width: 880px;
+}
+
+.de-yn-card {
+    border: 1.5px solid #e2e8f0;
+    border-radius: 0.75rem;
+    background: #ffffff;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.de-yn-question {
+    margin: 0 0 0.85rem;
+    font-size: 0.925rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    line-height: 1.4;
+}
+
+.de-yn-buttons {
+    display: flex;
+    gap: 0.6rem;
+}
+
+.de-yn-btn {
+    appearance: none;
+    -webkit-appearance: none;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 0.5rem;
+    background: #ffffff;
+    color: #1a1a1a;
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 0.7rem 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.de-yn-icon {
+    font-size: 0.8rem;
+}
+
+.de-yn-btn-yes:hover {
+    border-color: #017734;
+    background: #f0faf4;
+    color: #017734;
+}
+
+.de-yn-btn-no:hover {
+    border-color: #dc2626;
+    background: #fef2f2;
+    color: #dc2626;
+}
+
+.de-yn-btn-selected {
+    border-color: #017734;
+    background: #017734;
+    color: #ffffff;
+}
+
+.de-yn-btn-selected:hover {
+    border-color: #017734;
+    background: #017734;
+    color: #ffffff;
+}
+
+.de-yn-btn-no-selected {
+    border-color: #dc2626;
+    background: #dc2626;
+    color: #ffffff;
+}
+
+.de-yn-btn-no-selected:hover {
+    border-color: #dc2626;
+    background: #dc2626;
+    color: #ffffff;
+}

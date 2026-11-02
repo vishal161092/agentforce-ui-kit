@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Returns card-style selectable options for de_OptionsSelection_v2 LightningType</description>
+    <developerName>Brightwave_Topic_Selection</developerName>
+    <invocationTarget>DeOptionsSelectionActionV2</invocationTarget>
+    <invocationTargetType>apex</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+    <localDeveloperName>Brightwave_Topic_Selection</localDeveloperName>
+    <masterLabel>Brightwave Topic Selection</masterLabel>
+</GenAiFunction>

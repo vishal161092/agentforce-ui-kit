@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="Upload File" icon-name="utility:upload">
+        <div class="slds-p-around_medium upload-container">
+            <div class="slds-text-body_regular slds-m-bottom_small">
+                Please upload your document below.
+            </div>
+            <!-- Diagnostic: shows the record Id the component actually received.
+                 A blank value here is why lightning-file-upload throws
+                 "Unauthorized access". Remove once confirmed populated. -->
+            <div class="slds-text-color_weak slds-text-body_small slds-m-bottom_small">
+                recordId: {recordIdDisplay}
+            </div>
+            <lightning-file-upload
+                label="Attach Document"
+                name="fileUploader"
+                record-id={recordId}
+                onuploadfinished={handleUploadFinished}
+                multiple
+                disabled={locked}>
+            </lightning-file-upload>
+        </div>
+    </lightning-card>
+</template>

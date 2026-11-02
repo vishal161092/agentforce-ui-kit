@@ -1,0 +1,10 @@
+<template>
+    <template if:true={isLoading}>
+        <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+    </template>
+    <template if:true={hasData}>
+        <div class="response-container">
+            <lightning-formatted-rich-text value={answer}></lightning-formatted-rich-text>
+        </div>
+    </template>
+</template>

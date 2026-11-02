@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Returns de_AsaCarouselData payload for de_asaCarousel custom Lightning type.</description>
+    <developerName>Get_Card_Type</developerName>
+    <invocationTarget>de_AsaCarouselInvocable</invocationTarget>
+    <invocationTargetType>apex</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+    <localDeveloperName>Get_Card_Type</localDeveloperName>
+    <masterLabel>Get Card Type</masterLabel>
+    <progressIndicatorMessage>Loading Card Options ...</progressIndicatorMessage>
+</GenAiFunction>

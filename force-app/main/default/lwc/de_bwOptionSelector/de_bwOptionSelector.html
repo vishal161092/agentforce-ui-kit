@@ -1,0 +1,20 @@
+<template>
+    <div class="os-root">
+        <template lwc:if={promptMessage}>
+            <p class="os-prompt">{promptMessage}</p>
+        </template>
+        <div class="os-options">
+            <template for:each={optionList} for:item="opt">
+                <button
+                    key={opt.key}
+                    class={opt.cssClass}
+                    data-label={opt.label}
+                    disabled={locked}
+                    onclick={handleSelect}
+                >
+                    {opt.label}
+                </button>
+            </template>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,5 @@
+{
+  "title" : "DE HTML Employee Agent",
+  "description" : "Product comparison dashboard for internal employee Agentforce responses",
+  "lightning:type" : "@apexClassType/c__DeHtmlEmployeeAgentInfo"
+}

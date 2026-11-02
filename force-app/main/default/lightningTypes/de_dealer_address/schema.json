@@ -1,0 +1,5 @@
+{
+  "title" : "Dealer Address Card",
+  "description" : "Renders dealer location cards with addresses and Google Maps links",
+  "lightning:type" : "@apexClassType/c__de_DealerAddressInfo"
+}
